@@ -31,11 +31,13 @@
             android:id="@+id/inputMateriaNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Salário Bruto" />
+            android:hint="Salário Bruto"
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnCalcularNota"
+        android:id="@+id/btnCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="128dp"

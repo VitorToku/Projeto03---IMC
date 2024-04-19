@@ -1,5 +1,6 @@
 package br.edu.estudofecap.projeto03imc;
 
+import android.graphics.Color;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -45,10 +46,13 @@ public class AdapterNotas extends RecyclerView.Adapter<AdapterNotas.MyViewHolder
 
         if(media >= 6.0){
             holder.status.setText("Aprovado");
+            holder.status.setTextColor(Color.parseColor("#FF4CAF50"));
         }else if(media < 6 && media > 5.0){
             holder.status.setText("Em exame");
+            holder.status.setTextColor(Color.parseColor("#FFFFEB3B"));
         }else{
             holder.status.setText("Reprovado");
+            holder.status.setTextColor(Color.parseColor("#FFF44336"));
         }
     }
 

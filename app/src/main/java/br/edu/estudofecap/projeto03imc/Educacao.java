@@ -8,17 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Educacao extends AppCompatActivity {
     RecyclerView recyclerView;
-    Button btnLimpar, btnCalcular;
+    Button btnLimpar, btnCalcular, btnVoltar;
     List<Materia> listaDeMaterias = new ArrayList();
     String[] materias = {
             "Programação para Dispositivos Móveis",
@@ -35,6 +31,14 @@ public class Educacao extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.recyclerMaterias);
         btnLimpar = findViewById(R.id.btnLimpar);
+        btnVoltar = findViewById(R.id.btnVoltar);
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         btnLimpar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +47,7 @@ public class Educacao extends AppCompatActivity {
             }
         });
 
-        btnCalcular = findViewById(R.id.btnCalcularNota);
+        btnCalcular = findViewById(R.id.btnCalcular);
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -68,9 +72,16 @@ public class Educacao extends AppCompatActivity {
             List<Materia> lista = meuAdapter.getListaMaterias();
             Intent i = new Intent(Educacao.this, ResultadoNotas.class);
             Bundle args = new Bundle();
+            ArrayList<String> nomes = new ArrayList<>();
 
-            args.putSerializable("Lista", (Serializable) lista);
-            i.putExtra("Bundle", args);
+            for(Materia materia: lista){
+                i.putExtra( "NI" + materia.getNomeMateria(), materia.getNi());
+                i.putExtra( "PI" + materia.getNomeMateria(), materia.getPi());
+                i.putExtra( "PO" + materia.getNomeMateria(), materia.getPo());
+                nomes.add(materia.getNomeMateria());
+            }
+            i.putStringArrayListExtra("listaNomes", nomes);
+
             startActivity(i);
         }
 

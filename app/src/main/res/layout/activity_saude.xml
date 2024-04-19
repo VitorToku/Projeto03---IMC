@@ -11,7 +11,7 @@
         android:id="@+id/txtTituloEducacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Educação"
+        android:text="Saúde"
         android:textColor="@color/purple_700"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -22,12 +22,9 @@
         android:id="@+id/btnCalcular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="128dp"
         android:text="Calcular"
         app:layout_constraintBottom_toTopOf="@+id/btnLimpar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -37,41 +34,63 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Insira abaixo suas notas de cada Matéria e veja se passou"
+        android:text="Insira seu peso e altura"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtTituloEducacao" />
 
     <Button
         android:id="@+id/btnVoltar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Voltar"
-        android:layout_width="0dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="128dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/btnLimpar"
+        app:layout_constraintStart_toStartOf="@+id/btnLimpar" />
 
     <Button
         android:id="@+id/btnLimpar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:layout_width="0dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="128dp"
         android:text="Limpar"
         app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/btnCalcular"
+        app:layout_constraintStart_toStartOf="@+id/btnCalcular" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMaterias"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCalcular"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoEducacao" />
+        app:layout_constraintTop_toBottomOf="@+id/txtDescricaoEducacao">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputPeso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Peso (Kg)"
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputAltura"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Altura (m)"
+            android:inputType="numberDecimal"
+            android:singleLine="true" />
+    </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

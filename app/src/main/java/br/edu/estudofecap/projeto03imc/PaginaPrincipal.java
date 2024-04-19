@@ -9,7 +9,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class PaginaPrincipal extends AppCompatActivity {
-    Button btnFinanceiro, btnEducacao;
+    Button btnFinanceiro, btnEducacao, btnSaude, btnInformacoes;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,6 +17,8 @@ public class PaginaPrincipal extends AppCompatActivity {
 
         btnFinanceiro = findViewById(R.id.btnFinanceiro);
         btnEducacao = findViewById(R.id.btnEducacao);
+        btnSaude = findViewById(R.id.btnSaude);
+        btnInformacoes = findViewById(R.id.btnInformacoes);
         btnFinanceiro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -24,7 +26,6 @@ public class PaginaPrincipal extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
         btnEducacao.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -33,6 +34,21 @@ public class PaginaPrincipal extends AppCompatActivity {
             }
         });
 
+        btnSaude.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PaginaPrincipal.this, Saude.class);
+                startActivity(i);
+            }
+        });
+
+        btnInformacoes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(PaginaPrincipal.this, Informacoes.class);
+                startActivity(i);
+            }
+        });
     }
 
 

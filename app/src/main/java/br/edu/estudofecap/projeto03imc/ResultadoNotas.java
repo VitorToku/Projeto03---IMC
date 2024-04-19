@@ -6,27 +6,45 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ResultadoNotas extends AppCompatActivity {
-    TextView txtTeste;
     RecyclerView recyclerNotas;
+    Button btnVoltar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultado_notas);
         recyclerNotas = findViewById(R.id.recyclerNotas);
+        btnVoltar = findViewById(R.id.btnVoltar);
+
+        btnVoltar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
 
         Intent intent = getIntent();
-        Bundle args = intent.getBundleExtra("Bundle");
-        ArrayList<Materia> lista = (ArrayList<Materia>) args.getSerializable("Lista");
-        Materia materia = lista.get(4);
-        String teste = "Matéria: " + materia.getNomeMateria() + "NI: " + materia.getNi() + "PI: " + materia.getPi() + "PO: " + materia.getPo();
-        Toast.makeText(this, teste, Toast.LENGTH_SHORT).show();
-        AdapterNotas adapter = new AdapterNotas(lista);
+        ArrayList<String> listaNomes = intent.getStringArrayListExtra("listaNomes");
+        List<Materia> listaMaterias = new ArrayList<>();
+
+        for(String nome: listaNomes){
+            double NI = intent.getDoubleExtra("NI" + nome, 0.0);
+            double PI = intent.getDoubleExtra("PI" + nome, 0.0);
+            double PO = intent.getDoubleExtra("PO" + nome, 0.0);
+            Materia materia = new Materia(nome,NI,PI,PO);
+            listaMaterias.add(materia);
+        }
+
+        AdapterNotas adapter = new AdapterNotas(listaMaterias);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
 

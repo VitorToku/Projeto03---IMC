@@ -43,9 +43,9 @@ public class AdapterMaterias extends RecyclerView.Adapter<AdapterMaterias.MyView
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.toString().equals("")){
-                    listaMaterias.get(i2).setNi(0.0);
+                    materia.setNi(0.0);
                 }else{
-                    listaMaterias.get(i2).setNi(Double.parseDouble(charSequence.toString()));
+                    materia.setNi(Double.parseDouble(charSequence.toString()));
                 }
 
             }
@@ -65,9 +65,9 @@ public class AdapterMaterias extends RecyclerView.Adapter<AdapterMaterias.MyView
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.toString().equals("")){
-                    listaMaterias.get(i2).setPi(0.0);
+                    materia.setPi(0.0);
                 }else{
-                    listaMaterias.get(i2).setPi(Double.parseDouble(charSequence.toString()));
+                    materia.setPi(Double.parseDouble(charSequence.toString()));
                 }
             }
 
@@ -86,9 +86,9 @@ public class AdapterMaterias extends RecyclerView.Adapter<AdapterMaterias.MyView
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.toString().equals("")){
-                    listaMaterias.get(i2).setPo(0.0);
+                    materia.setPo(0.0);
                 }else{
-                    listaMaterias.get(i2).setPo(Double.parseDouble(charSequence.toString()));
+                    materia.setPo(Double.parseDouble(charSequence.toString()));
                 }
             }
 

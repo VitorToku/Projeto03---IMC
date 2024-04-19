@@ -1,5 +1,7 @@
 package br.edu.estudofecap.projeto03imc;
 
+import androidx.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Materia implements Serializable {
@@ -43,6 +45,16 @@ public class Materia implements Serializable {
 
     public Double getPo() {
         return po;
+    }
+
+    @NonNull
+    @Override
+    public String toString() {
+        String ret = "Matéria: " + getNomeMateria() +
+                    " NI: " + getNi() +
+                    " PI: " + getPi() +
+                    " PO: " + getPo();
+        return ret;
     }
 
     public void setPo(Double po) {
