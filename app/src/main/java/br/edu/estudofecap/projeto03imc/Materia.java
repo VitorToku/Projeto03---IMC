@@ -1,6 +1,8 @@
 package br.edu.estudofecap.projeto03imc;
 
-public class Materia {
+import java.io.Serializable;
+
+public class Materia implements Serializable {
     String nomeMateria;
     Double ni, pi, po;
 

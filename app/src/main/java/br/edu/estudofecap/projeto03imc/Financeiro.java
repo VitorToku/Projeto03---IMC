@@ -18,7 +18,7 @@ public class Financeiro extends AppCompatActivity {
         setContentView(R.layout.activity_financeiro);
 
         inputSalarioBruto = findViewById(R.id.inputMateriaNI);
-        btnCalculosFinanceiros = findViewById(R.id.btnCalculosFinanceiro);
+        btnCalculosFinanceiros = findViewById(R.id.btnCalcularNota);
         btnLimpar = findViewById(R.id.btnLimpar);
         btnVoltar = findViewById(R.id.btnVoltar);
         btnCalculosFinanceiros.setOnClickListener(new View.OnClickListener() {

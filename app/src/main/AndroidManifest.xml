@@ -12,6 +12,9 @@
         android:theme="@style/Theme.Projeto03IMC"
         tools:targetApi="31">
         <activity
+            android:name=".ResultadoNotas"
+            android:exported="false" />
+        <activity
             android:name=".Educacao"
             android:exported="false" />
         <activity

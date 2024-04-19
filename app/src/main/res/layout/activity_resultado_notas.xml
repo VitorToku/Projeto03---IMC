@@ -8,27 +8,15 @@
     tools:context=".Financeiro">
 
     <TextView
-        android:id="@+id/txtTituloEducacao"
+        android:id="@+id/txtTituloNotas"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Educação"
+        android:text="Notas"
         android:textColor="@color/purple_700"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnCalcularNota"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="128dp"
-        android:text="Calcular"
-        app:layout_constraintBottom_toTopOf="@+id/btnLimpar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtDescricaoEducacao"
@@ -37,10 +25,11 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Insira abaixo suas notas de cada Matéria e veja se passou"
+        android:text="Aqui estão os status de suas matérias:"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtTituloEducacao" />
+        app:layout_constraintTop_toBottomOf="@+id/txtTituloNotas" />
 
     <Button
         android:id="@+id/btnVoltar"
@@ -53,23 +42,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btnLimpar"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_width="0dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginEnd="128dp"
-        android:text="Limpar"
-        app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerMaterias"
+        android:id="@+id/recyclerNotas"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnCalcularNota"
+        app:layout_constraintBottom_toTopOf="@+id/btnVoltar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtDescricaoEducacao" />

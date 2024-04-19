@@ -33,7 +33,74 @@ public class AdapterMaterias extends RecyclerView.Adapter<AdapterMaterias.MyView
 
     public void onBindViewHolder(@NonNull MyViewHolder  holder, int position) {
         Materia materia = listaMaterias.get(position);
+        //Listener para alterar os atributos da lista de acordo com o que tiver de input
+        holder.inputNI.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().equals("")){
+                    listaMaterias.get(i2).setNi(0.0);
+                }else{
+                    listaMaterias.get(i2).setNi(Double.parseDouble(charSequence.toString()));
+                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        holder.inputPI.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().equals("")){
+                    listaMaterias.get(i2).setPi(0.0);
+                }else{
+                    listaMaterias.get(i2).setPi(Double.parseDouble(charSequence.toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        holder.inputPO.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().equals("")){
+                    listaMaterias.get(i2).setPo(0.0);
+                }else{
+                    listaMaterias.get(i2).setPo(Double.parseDouble(charSequence.toString()));
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
         holder.tituloMateria.setText(materia.getNomeMateria());
+
+        //Parte responsável por verificar se as notas são 0 e seta como vazio
         if(materia.getNi() == 0.0  ||   materia.getNi() == null){
             holder.inputNI.setText("");
         }else{
@@ -51,6 +118,12 @@ public class AdapterMaterias extends RecyclerView.Adapter<AdapterMaterias.MyView
         }else{
             holder.inputPO.setText(materia.getPo()+"");
         }
+
+
+    }
+
+    public List<Materia> getListaMaterias(){
+        return this.listaMaterias;
     }
 
     public void limparDados(){
@@ -58,6 +131,7 @@ public class AdapterMaterias extends RecyclerView.Adapter<AdapterMaterias.MyView
             materia.setNi(0.0);
             materia.setPi(0.0);
             materia.setPo(0.0);
+            notifyDataSetChanged();
         }
     }
 
